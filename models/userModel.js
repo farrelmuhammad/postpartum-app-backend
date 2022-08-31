@@ -1,4 +1,4 @@
-import { Sequelize } from "sequelize";
+import {Sequelize} from "sequelize";
 import db from "../config/Database.js";
 
 const {DataTypes} = Sequelize;
@@ -9,7 +9,7 @@ const Users = db.define('users', {
         defaultValue: DataTypes.UUIDV4,
         allowNull: false,
         validate: {
-            notEmpty: true,
+            notEmpty: true
         }
     },
     name: {
@@ -32,14 +32,14 @@ const Users = db.define('users', {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-            notEmpty: true,
+            notEmpty: true
         }
     },
     role: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-            notEmpty: true,
+            notEmpty: true
         }
     },
 }, {
