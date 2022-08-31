@@ -1,0 +1,11 @@
+// Create a user
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+    "name": "Farrel Muhammad",
+    "email": "farrel@mail.com",
+    "password": "farrel123",
+    "confirmPassword": "farrel123",
+    "role": "admin",
+}

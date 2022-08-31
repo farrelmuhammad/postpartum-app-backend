@@ -1,13 +1,22 @@
 {
   "name": "postpartum-app-backend",
   "version": "1.0.0",
+  "type": "module",
   "main": "index.js",
   "repository": "https://github.com/farrelmuhammad/postpartum-app-backend.git",
-  "author": "Farrel Muhammad <81765631+farrelmuhammad@users.noreply.github.com>",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "farrel.edwinconsultants <farrel.edwinconsultants@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "argon2": "^0.29.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
     "mysql2": "^2.3.3",
-    "sequelize": "^6.21.4",
-    "sequelize-cli": "^6.4.1"
+    "sequelize": "^6.21.4"
   }
 }
