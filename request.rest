@@ -3,9 +3,9 @@ POST http://localhost:5000/users
 Content-Type: application/json
 
 {
-    "name": "Farrel Muhammad",
+    "name": "farrel",
     "email": "farrel@mail.com",
-    "password": "farrel123",
-    "confirmPassword": "farrel123",
+    "password": "farrel123456",
+    "confPassword": "farrel123456",
     "role": "admin",
 }

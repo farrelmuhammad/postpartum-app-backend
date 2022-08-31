@@ -1,13 +1,12 @@
 import User from "../models/userModel.js";
 import argon2 from "argon2";
-import { request } from "express";
 
 export const getUser = async (req, res) => {
     try {
         const response = await User.findAll();
-        request.statusCode(200).json(response);
+        res.status(200).json(response);
     } catch (error) {
-        request.statusCode(500).json({msg: error.message});
+        res.status(500).json({msg: error.message});
     }
 }
 
@@ -18,15 +17,15 @@ export const getUserById = async (req, res) => {
                 uuid: req.params.id
             }
         });
-        request.statusCode(200).json(response);
+        res.status(200).json(response);
     } catch (error) {
-        request.statusCode(500).json({msg: error.message});
+        res.status(500).json({msg: error.message});
     }
 }
 
-export const createUser = async (req, res) => {
-    const {name, email,password, confirmPassword, role} = req.body;
-    if(password !== confirmPassword) return res.status(400).json({msg: "Password & Confirm Password tidak cocok"});
+export const createUser = async (req, res) =>{
+    const {name, email, password, confPassword, role} = req.body;
+    if(password !== confPassword) return res.status(400).json({msg: "Password dan Confirm Password tidak cocok"});
     const hashPassword = await argon2.hash(password);
     try {
         await User.create({
@@ -34,10 +33,10 @@ export const createUser = async (req, res) => {
             email: email,
             password: hashPassword,
             role: role
-        })
-        request.status(201).json({msgL: "Register Berhasil!"})
+        });
+        res.status(201).json({msg: "Register Berhasil!"});
     } catch (error) {
-        request.statusCode(400).json({msg: error.message});
+        res.status(400).json({msg: error.message});
     }
 }
 

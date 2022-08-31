@@ -9,6 +9,8 @@ dotenv.config();
 
 const app = express();
 
+// const port = process.env.APP_PORT || 5000;
+
 // (async () => {
 //     await db.sync();
 // })();
@@ -20,16 +22,16 @@ app.use(session({
     cookie: {
         secure: 'auto'
     }
-}))
+}));
 
 app.use(cors({
     credentials: true,
     origin: 'http://localhost:3000'
-}))
+}));
 app.use(express.json());
-app.use(userRoute)
-app.use(productRoute)
+app.use(userRoute);
+app.use(productRoute);
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.APP_PORT, () => {
     console.log('Server up an running...')
-})
+});
